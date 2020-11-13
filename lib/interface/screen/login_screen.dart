@@ -20,33 +20,41 @@ class LoginScreen extends StatelessWidget {
 
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            decoration: InputDecoration(
-              icon: Icon(Icons.alternate_email),
-              labelText: S.current.email,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextFormField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.alternate_email),
+                labelText: S.current.email,
+              ),
+              keyboardType: TextInputType.emailAddress,
+              validator: EmailValidator(errorText: S.current.invalidEmail),
+              onSaved: (String value) => email = value,
             ),
-            keyboardType: TextInputType.emailAddress,
-            validator: EmailValidator(errorText: S.current.invalidEmail),
-            onSaved: (String value) => email = value,
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              icon: Icon(Icons.vpn_key),
-              labelText: S.current.password,
+            TextFormField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.vpn_key),
+                labelText: S.current.password,
+              ),
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              onSaved: (String value) => email = value,
             ),
-            obscureText: true,
-            keyboardType: TextInputType.visiblePassword,
-            onSaved: (String value) => email = value,
-          ),
-          ElevatedButton(
-            child: Text(S.current.login),
-            onPressed: () {
-              if (_formKey.currentState.validate()) {}
-            },
-          ),
-        ],
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              child: Text(S.current.login),
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  // TODO: Login con [email] e [password].
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
