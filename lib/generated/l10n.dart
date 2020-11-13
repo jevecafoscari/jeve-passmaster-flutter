@@ -35,11 +35,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
       'Email',
       name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Insert a valid email`
+  String get invalidEmail {
+    return Intl.message(
+      'Insert a valid email',
+      name: 'invalidEmail',
       desc: '',
       args: [],
     );

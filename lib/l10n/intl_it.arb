@@ -1,4 +1,6 @@
 {
+  "login": "Login",
   "email": "Email",
+  "invalidEmail": "Inserisci una email valida",
   "password": "Password"
 }
