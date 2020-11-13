@@ -40,6 +40,26 @@
       });
     }
   </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+
+  <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB9kryhbqi_egO-tHRDHG7ngmg6tAx2wt4",
+    authDomain: "jeve-passmaster-flutter.firebaseapp.com",
+    databaseURL: "https://jeve-passmaster-flutter.firebaseio.com",
+    projectId: "jeve-passmaster-flutter",
+    storageBucket: "jeve-passmaster-flutter.appspot.com",
+    messagingSenderId: "649369177367",
+    appId: "1:649369177367:web:da4589cf0654a242827b52"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
