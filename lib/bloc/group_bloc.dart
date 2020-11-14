@@ -16,7 +16,7 @@ class GroupBloc {
 
     _groupsFetcher.sink.add(allAccessibleGroups);
     groups = allAccessibleGroups;
-    debugPrint("Inviate al sink tutte le richieste.");
+    debugPrint("Inviati al sink tutti i gruppi di password.");
 
     return allAccessibleGroups;
   }

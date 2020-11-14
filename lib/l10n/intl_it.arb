@@ -16,5 +16,17 @@
   "save": "Salva",
   "editPassword": "Modifica password",
   "credential": "Email / username",
-  "requiredGroup": "Imposta almeno un gruppo per questa password"
+  "requiredGroup": "Imposta almeno un gruppo per questa password",
+  "users": "Utenti",
+  "editUser": "Modifica utente",
+  "surname": "Cognome",
+  "readOnly": "Sola lettura",
+  "readOnlyExtended": "Può solamente visualizzare le password dei gruppi che gli sono assegnati",
+  "editor": "Editor",
+  "editorExtended": "Può visualizzare tutte le password e creare nuove password e gruppi",
+  "admin": "Amministratore",
+  "adminExtended": "Può gestire tutte le password e creare nuovi utenti",
+  "superAdmin": "Super amministratore",
+  "superAdminExtended": "Ce n'è uno: l'unico, il sommo",
+  "weakPassword": "La password deve avere almeno 8 caratteri"
 }

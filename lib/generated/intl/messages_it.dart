@@ -21,10 +21,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "admin" : MessageLookupByLibrary.simpleMessage("Amministratore"),
+    "adminExtended" : MessageLookupByLibrary.simpleMessage("Può gestire tutte le password e creare nuovi utenti"),
     "credential" : MessageLookupByLibrary.simpleMessage("Email / username"),
     "description" : MessageLookupByLibrary.simpleMessage("Descrizione"),
     "editGroup" : MessageLookupByLibrary.simpleMessage("Modifica gruppo"),
     "editPassword" : MessageLookupByLibrary.simpleMessage("Modifica password"),
+    "editUser" : MessageLookupByLibrary.simpleMessage("Modifica utente"),
+    "editor" : MessageLookupByLibrary.simpleMessage("Editor"),
+    "editorExtended" : MessageLookupByLibrary.simpleMessage("Può visualizzare tutte le password e creare nuove password e gruppi"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "groups" : MessageLookupByLibrary.simpleMessage("Gruppi"),
     "invalidEmail" : MessageLookupByLibrary.simpleMessage("Inserisci una email valida"),
@@ -36,8 +41,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "note" : MessageLookupByLibrary.simpleMessage("Note"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "passwords" : MessageLookupByLibrary.simpleMessage("Password"),
+    "readOnly" : MessageLookupByLibrary.simpleMessage("Sola lettura"),
+    "readOnlyExtended" : MessageLookupByLibrary.simpleMessage("Può solamente visualizzare le password dei gruppi che gli sono assegnati"),
     "requiredError" : MessageLookupByLibrary.simpleMessage("Questo campo non può essere lasciato vuoto"),
     "requiredGroup" : MessageLookupByLibrary.simpleMessage("Imposta almeno un gruppo per questa password"),
-    "save" : MessageLookupByLibrary.simpleMessage("Salva")
+    "save" : MessageLookupByLibrary.simpleMessage("Salva"),
+    "superAdmin" : MessageLookupByLibrary.simpleMessage("Super amministratore"),
+    "superAdminExtended" : MessageLookupByLibrary.simpleMessage("Ce n\'è uno: l\'unico, il sommo"),
+    "surname" : MessageLookupByLibrary.simpleMessage("Cognome"),
+    "users" : MessageLookupByLibrary.simpleMessage("Utenti"),
+    "weakPassword" : MessageLookupByLibrary.simpleMessage("La password deve avere almeno 8 caratteri")
   };
 }

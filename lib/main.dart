@@ -7,6 +7,7 @@ import 'package:jeve_passmaster_flutter/interface/screen/home_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/login_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/password_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/splash_screen.dart';
+import 'package:jeve_passmaster_flutter/interface/screen/user_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/models/state_model.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';
 import 'package:jeve_passmaster_flutter/references.dart';
@@ -46,6 +47,7 @@ class Passmaster extends StatelessWidget {
           HomeScreen.route: (BuildContext context) => HomeScreen(),
           GroupEditorScreen.route: (BuildContext context) => GroupEditorScreen(),
           PasswordEditorScreen.route: (BuildContext context) => PasswordEditorScreen(),
+          UserEditorScreen.route: (BuildContext context) => UserEditorScreen(),
         },
       ),
     );

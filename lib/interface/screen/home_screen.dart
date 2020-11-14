@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:jeve_passmaster_flutter/generated/l10n.dart';
 import 'package:jeve_passmaster_flutter/interface/pages/group_page.dart';
 import 'package:jeve_passmaster_flutter/interface/pages/password_page.dart';
+import 'package:jeve_passmaster_flutter/interface/pages/user_page.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/group_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/login_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/password_editor_screen.dart';
+import 'package:jeve_passmaster_flutter/interface/screen/user_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';
 import 'package:jeve_passmaster_flutter/references.dart';
 import 'package:provider/provider.dart';
@@ -32,17 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildBody(BuildContext context) {
     List<Widget> children = <Widget>[PasswordPage()];
 
-    if (Provider.of<UserModel>(context).role != UserRole.READ_ONLY) children.addAll(<Widget>[GroupPage()]);
+    if (Provider.of<UserModel>(context).role != UserRole.READ_ONLY) children.addAll(<Widget>[GroupPage(), UserPage()]);
 
     return IndexedStack(index: _pageIndex, children: children);
   }
 
   FloatingActionButton _buildFloatingActionButton() {
+    if (Provider.of<UserModel>(context, listen: false).role == UserRole.READ_ONLY) return null;
+
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
-        if(_pageIndex == 0) Navigator.of(context).pushNamed(PasswordEditorScreen.route);
+        if (_pageIndex == 0) Navigator.of(context).pushNamed(PasswordEditorScreen.route);
         if (_pageIndex == 1) Navigator.of(context).pushNamed(GroupEditorScreen.route);
+        if (_pageIndex == 2) Navigator.of(context).pushNamed(UserEditorScreen.route);
       },
     );
   }
@@ -67,13 +72,22 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.of(context).pop();
             },
           ),
-          ListTile(
-            title: Text(S.current.groups),
-            onTap: () {
-              setState(() => _pageIndex = 1);
-              Navigator.of(context).pop();
-            },
-          ),
+          if (Provider.of<UserModel>(context).role != UserRole.READ_ONLY) ...[
+            ListTile(
+              title: Text(S.current.groups),
+              onTap: () {
+                setState(() => _pageIndex = 1);
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              title: Text(S.current.users),
+              onTap: () {
+                setState(() => _pageIndex = 2);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
           Spacer(),
           Divider(
             height: 0.0,

@@ -214,6 +214,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Users`
+  String get users {
+    return Intl.message(
+      'Users',
+      name: 'users',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit user`
+  String get editUser {
+    return Intl.message(
+      'Edit user',
+      name: 'editUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Surname`
+  String get surname {
+    return Intl.message(
+      'Surname',
+      name: 'surname',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Read only`
+  String get readOnly {
+    return Intl.message(
+      'Read only',
+      name: 'readOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can only see password of the assigned groups`
+  String get readOnlyExtended {
+    return Intl.message(
+      'Can only see password of the assigned groups',
+      name: 'readOnlyExtended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Editor`
+  String get editor {
+    return Intl.message(
+      'Editor',
+      name: 'editor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can see all the passwords and create new password or groups`
+  String get editorExtended {
+    return Intl.message(
+      'Can see all the passwords and create new password or groups',
+      name: 'editorExtended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin`
+  String get admin {
+    return Intl.message(
+      'Admin',
+      name: 'admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can manage passwords and create new users`
+  String get adminExtended {
+    return Intl.message(
+      'Can manage passwords and create new users',
+      name: 'adminExtended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Super admin`
+  String get superAdmin {
+    return Intl.message(
+      'Super admin',
+      name: 'superAdmin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There's only one, and he's the chosen one`
+  String get superAdminExtended {
+    return Intl.message(
+      'There\'s only one, and he\'s the chosen one',
+      name: 'superAdminExtended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password must has at least 8 characters`
+  String get weakPassword {
+    return Intl.message(
+      'The password must has at least 8 characters',
+      name: 'weakPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

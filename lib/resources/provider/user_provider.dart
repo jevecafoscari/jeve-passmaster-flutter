@@ -4,6 +4,16 @@ import 'package:jeve_passmaster_flutter/models/user_model.dart';
 import 'package:jeve_passmaster_flutter/references.dart';
 
 class UserProvider {
+  /// Restituisce tutti gli utenti presenti nell'app.
+  static Future<List<UserModel>> getAllUsers() async {
+    List<DocumentSnapshot> rawUsers = (await References.usersCollection.get()).docs;
+
+    List<UserModel> users = <UserModel>[];
+    for (int index = 0; index < rawUsers.length; index++) users.add(_decodeUser(rawUsers.elementAt(index)));
+
+    return users;
+  }
+
   /// Restituisce un utente in base al suo [userUid], o null se questo non esiste.
   static Future<UserModel> getUserByUid(String userUid) async {
     DocumentSnapshot rawUser = await References.usersCollection.doc(userUid).get();
