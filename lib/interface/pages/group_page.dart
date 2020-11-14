@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jeve_passmaster_flutter/generated/l10n.dart';
+import 'package:jeve_passmaster_flutter/interface/screen/group_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/models/group_model.dart';
 import 'package:jeve_passmaster_flutter/models/state_model.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';
@@ -21,6 +22,7 @@ class GroupPage extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) => ListTile(
               title: Text(groupsSnapshot.data.elementAt(index).name),
               trailing: Text(groupsSnapshot.data.elementAt(index).passwords.length.toString()),
+              onTap: () => Navigator.of(context).pushNamed(GroupEditorScreen.route, arguments: groupsSnapshot.data.elementAt(index)),
             ),
           );
         }

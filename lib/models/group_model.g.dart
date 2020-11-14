@@ -14,7 +14,7 @@ GroupModel _$GroupModelFromJson(Map<String, dynamic> json) {
     creationDate: json['creationDate'] == null
         ? null
         : DateTime.parse(json['creationDate'] as String),
-  );
+  )..note = json['note'] as String;
 }
 
 Map<String, dynamic> _$GroupModelToJson(GroupModel instance) =>
@@ -22,5 +22,6 @@ Map<String, dynamic> _$GroupModelToJson(GroupModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
+      'note': instance.note,
       'creationDate': instance.creationDate?.toIso8601String(),
     };

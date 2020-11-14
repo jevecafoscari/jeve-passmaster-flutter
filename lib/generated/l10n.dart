@@ -184,6 +184,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit password`
+  String get editPassword {
+    return Intl.message(
+      'Edit password',
+      name: 'editPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email / username`
+  String get credential {
+    return Intl.message(
+      'Email / username',
+      name: 'credential',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set at least a group for this password`
+  String get requiredGroup {
+    return Intl.message(
+      'Set at least a group for this password',
+      name: 'requiredGroup',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

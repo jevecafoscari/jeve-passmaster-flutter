@@ -9,7 +9,7 @@ class PasswordModel {
   String service, email, password;
   String note;
   DateTime creationDate;
-  List<String> groupIds;
+  Set<String> groupIds;
 
   @JsonKey(ignore: true)
   DocumentReference reference;

@@ -13,5 +13,8 @@
   "description": "Description",
   "note": "Note",
   "requiredError": "This field cannot be empty",
-  "save": "Save"
+  "save": "Save",
+  "editPassword": "Edit password",
+  "credential": "Email / username",
+  "requiredGroup": "Set at least a group for this password"
 }

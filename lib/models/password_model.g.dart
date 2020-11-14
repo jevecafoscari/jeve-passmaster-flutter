@@ -15,6 +15,7 @@ PasswordModel _$PasswordModelFromJson(Map<String, dynamic> json) {
     creationDate: json['creationDate'] == null
         ? null
         : DateTime.parse(json['creationDate'] as String),
+    groupIds: (json['groupIds'] as List)?.map((e) => e as String)?.toSet(),
   )..service = json['service'] as String;
 }
 
@@ -26,4 +27,5 @@ Map<String, dynamic> _$PasswordModelToJson(PasswordModel instance) =>
       'password': instance.password,
       'note': instance.note,
       'creationDate': instance.creationDate?.toIso8601String(),
+      'groupIds': instance.groupIds?.toList(),
     };

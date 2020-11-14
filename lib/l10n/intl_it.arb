@@ -13,5 +13,8 @@
   "description": "Descrizione",
   "note": "Note",
   "requiredError": "Questo campo non può essere lasciato vuoto",
-  "save": "Salva"
+  "save": "Salva",
+  "editPassword": "Modifica password",
+  "credential": "Email / username",
+  "requiredGroup": "Imposta almeno un gruppo per questa password"
 }

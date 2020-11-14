@@ -21,8 +21,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "credential" : MessageLookupByLibrary.simpleMessage("Email / username"),
     "description" : MessageLookupByLibrary.simpleMessage("Description"),
     "editGroup" : MessageLookupByLibrary.simpleMessage("Edit group"),
+    "editPassword" : MessageLookupByLibrary.simpleMessage("Edit password"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "groups" : MessageLookupByLibrary.simpleMessage("Groups"),
     "invalidEmail" : MessageLookupByLibrary.simpleMessage("Insert a valid email"),
@@ -35,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "passwords" : MessageLookupByLibrary.simpleMessage("Passwords"),
     "requiredError" : MessageLookupByLibrary.simpleMessage("This field cannot be empty"),
+    "requiredGroup" : MessageLookupByLibrary.simpleMessage("Set at least a group for this password"),
     "save" : MessageLookupByLibrary.simpleMessage("Save")
   };
 }

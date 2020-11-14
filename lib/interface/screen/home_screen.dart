@@ -4,6 +4,7 @@ import 'package:jeve_passmaster_flutter/interface/pages/group_page.dart';
 import 'package:jeve_passmaster_flutter/interface/pages/password_page.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/group_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/interface/screen/login_screen.dart';
+import 'package:jeve_passmaster_flutter/interface/screen/password_editor_screen.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';
 import 'package:jeve_passmaster_flutter/references.dart';
 import 'package:provider/provider.dart';
@@ -40,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
+        if(_pageIndex == 0) Navigator.of(context).pushNamed(PasswordEditorScreen.route);
         if (_pageIndex == 1) Navigator.of(context).pushNamed(GroupEditorScreen.route);
       },
     );

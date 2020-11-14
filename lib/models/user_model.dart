@@ -13,7 +13,7 @@ class UserModel extends ChangeNotifier {
   String email, name, surname, photoUrl;
   DateTime creationDate;
   UserRole role;
-  List<String> enabledGroups;
+  Set<String> enabledGroups;
 
   @JsonKey(ignore: true)
   DocumentReference reference;

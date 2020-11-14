@@ -18,7 +18,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
         : DateTime.parse(json['creationDate'] as String),
     role: _$enumDecodeNullable(_$UserRoleEnumMap, json['role']),
     enabledGroups:
-        (json['enabledGroups'] as List)?.map((e) => e as String)?.toList(),
+        (json['enabledGroups'] as List)?.map((e) => e as String)?.toSet(),
   );
 }
 
@@ -30,7 +30,7 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'photoUrl': instance.photoUrl,
       'creationDate': instance.creationDate?.toIso8601String(),
       'role': _$UserRoleEnumMap[instance.role],
-      'enabledGroups': instance.enabledGroups,
+      'enabledGroups': instance.enabledGroups?.toList(),
     };
 
 T _$enumDecode<T>(
