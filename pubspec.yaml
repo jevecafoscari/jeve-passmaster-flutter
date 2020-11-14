@@ -37,6 +37,7 @@ dependencies:
 
   # Utilità
   form_field_validator: ^1.0.1
+  random_string: ^2.1.0
 
 
 dev_dependencies:

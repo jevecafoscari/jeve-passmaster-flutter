@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:jeve_passmaster_flutter/models/group_model.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';

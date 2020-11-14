@@ -8,5 +8,10 @@
   "passwords": "Password",
   "noData": "Nessun dato da mostrare",
   "groups": "Gruppi",
-  "editGroup": "Modifica gruppo"
+  "editGroup": "Modifica gruppo",
+  "name": "Nome",
+  "description": "Descrizione",
+  "note": "Note",
+  "requiredError": "Questo campo non può essere lasciato vuoto",
+  "save": "Salva"
 }

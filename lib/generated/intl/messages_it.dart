@@ -21,14 +21,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "description" : MessageLookupByLibrary.simpleMessage("Descrizione"),
+    "editGroup" : MessageLookupByLibrary.simpleMessage("Modifica gruppo"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
-    "groups" : MessageLookupByLibrary.simpleMessage("Groups"),
+    "groups" : MessageLookupByLibrary.simpleMessage("Gruppi"),
     "invalidEmail" : MessageLookupByLibrary.simpleMessage("Inserisci una email valida"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
     "loginError" : MessageLookupByLibrary.simpleMessage("L\'email o la password inserite non sono corrette"),
     "logout" : MessageLookupByLibrary.simpleMessage("Esci"),
+    "name" : MessageLookupByLibrary.simpleMessage("Nome"),
     "noData" : MessageLookupByLibrary.simpleMessage("Nessun dato da mostrare"),
+    "note" : MessageLookupByLibrary.simpleMessage("Note"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
-    "passwords" : MessageLookupByLibrary.simpleMessage("Password")
+    "passwords" : MessageLookupByLibrary.simpleMessage("Password"),
+    "requiredError" : MessageLookupByLibrary.simpleMessage("Questo campo non può essere lasciato vuoto"),
+    "save" : MessageLookupByLibrary.simpleMessage("Salva")
   };
 }

@@ -8,5 +8,10 @@
   "passwords": "Passwords",
   "noData": "No data in this field",
   "groups": "Groups",
-  "editGroup": "Edit group"
+  "editGroup": "Edit group",
+  "name": "Name",
+  "description": "Description",
+  "note": "Note",
+  "requiredError": "This field cannot be empty",
+  "save": "Save"
 }

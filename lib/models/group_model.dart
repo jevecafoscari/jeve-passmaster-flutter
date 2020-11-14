@@ -7,7 +7,7 @@ part 'group_model.g.dart';
 @JsonSerializable()
 class GroupModel {
   String id;
-  String name, description;
+  String name, description, note;
   DateTime creationDate;
 
   @JsonKey(ignore: true)
