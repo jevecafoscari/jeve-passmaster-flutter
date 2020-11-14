@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jeve_passmaster_flutter/models/user_model.dart';
-import 'package:jeve_passmaster_flutter/references.dart';
+import 'package:jeve_passmaster_flutter/resources/helper/profile_helper.dart';
 
 class AuthHelper {
   /// Crea un nuovo utente con [email] e [password].
@@ -12,7 +12,7 @@ class AuthHelper {
       user.uid = credential.user.uid;
       debugPrint("Creato con successo l'utente ${user.uid}.");
 
-      return await setUserData(user);
+      return await ProfileHelper.setUserData(user);
     } catch (e) {
       debugPrint(e.toString());
 
@@ -20,11 +20,10 @@ class AuthHelper {
     }
   }
 
-  /// Aggiorna i dati del profilo.
-  static Future<bool> setUserData(UserModel user) async {
+  /// Esegue l'accesso al provider di autenticazione con [email] e [password].
+  static Future<bool> signInWithEmailAndPassword(String email, String password) async {
     try {
-      await References.usersCollection.doc(user.uid).set(user.toJson());
-      debugPrint("Aggiornati con successo i dati per $user.");
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
 
       return true;
     } catch (e) {
@@ -33,4 +32,7 @@ class AuthHelper {
       return false;
     }
   }
+
+  /// Effettua il logout dell'utente corrente.
+  static Future<void> logout() async => await FirebaseAuth.instance.signOut();
 }

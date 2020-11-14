@@ -2,5 +2,7 @@
   "login": "Login",
   "email": "Email",
   "invalidEmail": "Insert a valid email",
-  "password": "Password"
+  "password": "Password",
+  "loginError": "Invalid email / password",
+  "logout": "Logout"
 }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:jeve_passmaster_flutter/models/password_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -11,6 +12,9 @@ class GroupModel {
 
   @JsonKey(ignore: true)
   List<PasswordModel> passwords;
+
+  @JsonKey(ignore: true)
+  DocumentReference reference;
 
   GroupModel({
     this.id,

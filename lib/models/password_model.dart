@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'password_model.g.dart';
@@ -8,6 +9,9 @@ class PasswordModel {
   String service, email, password;
   String note;
   DateTime creationDate;
+
+  @JsonKey(ignore: true)
+  DocumentReference reference;
 
   PasswordModel({
     this.id,

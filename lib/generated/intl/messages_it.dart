@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "invalidEmail" : MessageLookupByLibrary.simpleMessage("Inserisci una email valida"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
+    "loginError" : MessageLookupByLibrary.simpleMessage("L\'email o la password inserite non sono corrette"),
+    "logout" : MessageLookupByLibrary.simpleMessage("Esci"),
     "password" : MessageLookupByLibrary.simpleMessage("Password")
   };
 }

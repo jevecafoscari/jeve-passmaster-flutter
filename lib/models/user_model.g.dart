@@ -12,14 +12,14 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
     email: json['email'] as String,
     name: json['name'] as String,
     surname: json['surname'] as String,
+    photoUrl: json['photoUrl'] as String,
+    creationDate: json['creationDate'] == null
+        ? null
+        : DateTime.parse(json['creationDate'] as String),
     role: _$enumDecodeNullable(_$UserRoleEnumMap, json['role']),
     enabledGroups:
         (json['enabledGroups'] as List)?.map((e) => e as String)?.toList(),
-  )
-    ..photoUrl = json['photoUrl'] as String
-    ..creationDate = json['creationDate'] == null
-        ? null
-        : DateTime.parse(json['creationDate'] as String);
+  );
 }
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
