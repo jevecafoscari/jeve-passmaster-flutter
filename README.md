@@ -2,7 +2,7 @@
 
 Un portachiavi delle password di JEVE, consente una gestione a strati dei permessi degli utenti.
 
-È accessibile tramite una [console web](https://jeve-passmaster-flutter.web.app/) o un'applicazione [Android](https://github.com/emiliodallatorre/jeve-passmaster-flutter/releases/download/v0.0.1%2B1/app-release.apk), il cui apk si puà scaricare qui.
+È accessibile tramite una [console web](https://jeve-passmaster-flutter.web.app/) o un'applicazione [Android](https://github.com/emiliodallatorre/jeve-passmaster-flutter/releases/download/v0.0.1%2B1/app-release.apk), il cui apk si può scaricare qui.
 
 Una versione iOS è già esistente, ma non distribuibile per ora.
 
