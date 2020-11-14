@@ -7,5 +7,6 @@
   "logout": "Logout",
   "passwords": "Passwords",
   "noData": "No data in this field",
-  "groups": "Groups"
+  "groups": "Groups",
+  "editGroup": "Edit group"
 }

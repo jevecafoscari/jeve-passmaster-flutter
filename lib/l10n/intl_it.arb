@@ -7,5 +7,6 @@
   "logout": "Esci",
   "passwords": "Password",
   "noData": "Nessun dato da mostrare",
-  "groups": "Groups"
+  "groups": "Gruppi",
+  "editGroup": "Modifica gruppo"
 }
