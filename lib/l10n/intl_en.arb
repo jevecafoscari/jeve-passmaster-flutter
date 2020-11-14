@@ -29,5 +29,10 @@
   "superAdmin": "Super admin",
   "superAdminExtended": "There's only one, and he's the chosen one",
   "weakPassword": "The password must has at least 8 characters",
-  "delete": "Delete"
+  "delete": "Delete",
+  "deleteGroup": "Delete group",
+  "deleteGroupExtended": "Are you sure you want to delete this group?\nAll the passwords associated will be deleted.",
+  "undo": "Undo",
+  "deletePassword": "Delete password",
+  "deletePasswordExtended": "Are you sure you want to delete this password?\nThis cannot be undone."
 }

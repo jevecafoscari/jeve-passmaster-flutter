@@ -63,20 +63,54 @@ class GroupEditorScreen extends StatelessWidget {
             ),
           ),
         ),
-        ElevatedButton(
-          child: Text(S.current.save),
-          onPressed: () async {
-            if (_formKey.currentState.validate()) {
-              _formKey.currentState.save();
-              if (group.reference == null)
-                await GroupHelper.createGroup(group);
-              else
-                await GroupHelper.editGroup(group);
+        Row(
+          children: [
+            SizedBox(width: 8.0),
+            Expanded(
+              child: ElevatedButton(
+                child: Text(S.current.save),
+                onPressed: () async {
+                  if (_formKey.currentState.validate()) {
+                    _formKey.currentState.save();
+                    if (group.reference == null)
+                      await GroupHelper.createGroup(group);
+                    else
+                      await GroupHelper.editGroup(group);
 
-              Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
-              Navigator.of(context).pop();
-            }
-          },
+                    Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+            ),
+            SizedBox(width: 8.0),
+            Expanded(
+              child: ElevatedButton(
+                child: Text(S.current.delete),
+                onPressed: group.reference == null
+                    ? null
+                    : () async {
+                        bool delete = await showDialog<bool>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            title: Text(S.current.deleteGroup),
+                            content: Text(S.current.deleteGroupExtended),
+                            actions: [
+                              TextButton(child: Text(S.current.undo), onPressed: () => Navigator.of(context).pop(false)),
+                              ElevatedButton(child: Text(S.current.delete), onPressed: () => Navigator.of(context).pop(true)),
+                            ],
+                          ),
+                        );
+                        if (delete) {
+                          await GroupHelper.deleteGroup(group);
+                          Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
+                          Navigator.of(context).pop();
+                        }
+                      },
+              ),
+            ),
+            SizedBox(width: 8.0),
+          ],
         ),
       ],
     );

@@ -25,6 +25,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "adminExtended" : MessageLookupByLibrary.simpleMessage("Può gestire tutte le password e creare nuovi utenti"),
     "credential" : MessageLookupByLibrary.simpleMessage("Email / username"),
     "delete" : MessageLookupByLibrary.simpleMessage("Elimina"),
+    "deleteGroup" : MessageLookupByLibrary.simpleMessage("Elimina gruppo"),
+    "deleteGroupExtended" : MessageLookupByLibrary.simpleMessage("Sei certo di voler eliminare questo gruppo?\nSaranno elimitate definitivamente anche tutte le password contenute."),
+    "deletePassword" : MessageLookupByLibrary.simpleMessage("Elimina password"),
+    "deletePasswordExtended" : MessageLookupByLibrary.simpleMessage("Sei certo di voler eliminare questa password?\nQuesta azione è irreversibile."),
     "description" : MessageLookupByLibrary.simpleMessage("Descrizione"),
     "editGroup" : MessageLookupByLibrary.simpleMessage("Modifica gruppo"),
     "editPassword" : MessageLookupByLibrary.simpleMessage("Modifica password"),
@@ -50,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "superAdmin" : MessageLookupByLibrary.simpleMessage("Super amministratore"),
     "superAdminExtended" : MessageLookupByLibrary.simpleMessage("Ce n\'è uno: l\'unico, il sommo"),
     "surname" : MessageLookupByLibrary.simpleMessage("Cognome"),
+    "undo" : MessageLookupByLibrary.simpleMessage("Annulla"),
     "users" : MessageLookupByLibrary.simpleMessage("Utenti"),
     "weakPassword" : MessageLookupByLibrary.simpleMessage("La password deve avere almeno 8 caratteri")
   };

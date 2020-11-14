@@ -344,6 +344,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Delete group`
+  String get deleteGroup {
+    return Intl.message(
+      'Delete group',
+      name: 'deleteGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this group?\nAll the passwords associated will be deleted.`
+  String get deleteGroupExtended {
+    return Intl.message(
+      'Are you sure you want to delete this group?\nAll the passwords associated will be deleted.',
+      name: 'deleteGroupExtended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Undo`
+  String get undo {
+    return Intl.message(
+      'Undo',
+      name: 'undo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete password`
+  String get deletePassword {
+    return Intl.message(
+      'Delete password',
+      name: 'deletePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this password?\nThis cannot be undone.`
+  String get deletePasswordExtended {
+    return Intl.message(
+      'Are you sure you want to delete this password?\nThis cannot be undone.',
+      name: 'deletePasswordExtended',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
