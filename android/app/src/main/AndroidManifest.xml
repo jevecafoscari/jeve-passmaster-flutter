@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.jeve.jeve_passmaster_flutter">
    <application
-        android:label="jeve_passmaster_flutter"
+        android:label="JEVE Passmaster"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

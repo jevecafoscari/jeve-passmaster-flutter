@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "649369177367",
+    "firebase_url": "https://jeve-passmaster-flutter.firebaseio.com",
+    "project_id": "jeve-passmaster-flutter",
+    "storage_bucket": "jeve-passmaster-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649369177367:android:d67f673c43dffa87827b52",
+        "android_client_info": {
+          "package_name": "it.jeve.passmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649369177367-im8kmqmge9ohlkppsc0dkj765v1d0ie3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "it.jeve.passmaster",
+            "certificate_hash": "9c82fd705c21d7453992b13f5a55dcf636b59825"
+          }
+        },
+        {
+          "client_id": "649369177367-6ejolrbq4j23i6amjsaqpi1btkr4vnki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTAXqVnVmgAWmkWA689OyI3DML7G0EObM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649369177367-6ejolrbq4j23i6amjsaqpi1btkr4vnki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
