@@ -22,10 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
+    "groups" : MessageLookupByLibrary.simpleMessage("Groups"),
     "invalidEmail" : MessageLookupByLibrary.simpleMessage("Inserisci una email valida"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
     "loginError" : MessageLookupByLibrary.simpleMessage("L\'email o la password inserite non sono corrette"),
     "logout" : MessageLookupByLibrary.simpleMessage("Esci"),
-    "password" : MessageLookupByLibrary.simpleMessage("Password")
+    "noData" : MessageLookupByLibrary.simpleMessage("Nessun dato da mostrare"),
+    "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "passwords" : MessageLookupByLibrary.simpleMessage("Password")
   };
 }

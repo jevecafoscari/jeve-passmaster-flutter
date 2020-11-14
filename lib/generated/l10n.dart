@@ -94,6 +94,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Passwords`
+  String get passwords {
+    return Intl.message(
+      'Passwords',
+      name: 'passwords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data in this field`
+  String get noData {
+    return Intl.message(
+      'No data in this field',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Groups`
+  String get groups {
+    return Intl.message(
+      'Groups',
+      name: 'groups',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

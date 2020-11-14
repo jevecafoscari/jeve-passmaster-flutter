@@ -9,6 +9,7 @@ class PasswordModel {
   String service, email, password;
   String note;
   DateTime creationDate;
+  List<String> groupIds;
 
   @JsonKey(ignore: true)
   DocumentReference reference;
@@ -19,6 +20,7 @@ class PasswordModel {
     this.password,
     this.note,
     this.creationDate,
+    this.groupIds,
   });
 
   @override

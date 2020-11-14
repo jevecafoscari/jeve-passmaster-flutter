@@ -4,5 +4,8 @@
   "invalidEmail": "Inserisci una email valida",
   "password": "Password",
   "loginError": "L'email o la password inserite non sono corrette",
-  "logout": "Esci"
+  "logout": "Esci",
+  "passwords": "Password",
+  "noData": "Nessun dato da mostrare",
+  "groups": "Groups"
 }
