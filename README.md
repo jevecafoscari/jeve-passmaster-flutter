@@ -1,16 +1,25 @@
 # JEVE Passmaster
 
-Un portachiavi delle password di JEVE.
+Un portachiavi delle password di JEVE, consente una gestione a strati dei permessi degli utenti.
 
-## Getting Started
+È accessibile tramite una [console web](https://jeve-passmaster-flutter.web.app/) o un'applicazione [Android](https://github.com/emiliodallatorre/jeve-passmaster-flutter/releases/download/v0.0.1%2B1/app-release.apk), il cui apk si puà scaricare qui.
 
-This project is a starting point for a Flutter application.
+Una versione iOS è già esistente, ma non distribuibile per ora.
 
-A few resources to get you started if this is your first Flutter project:
+## Funzionamento
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+In questa applicazione esistono due "oggetti" virtuali da tenere in considerazione: i *gruppi* e le *password*.
+I gruppi possono essere considerati come dei "raccoglitori" per password.
+Gli "utenti", corrispondenti alle persone che usano l'app. Possono avere accesso ad uno, più di uno o tutti i *gruppi*, come spiegato di seguito.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Esistono tre tipi di utente:
+
+- Utenti di sola lettura, possono leggere le password nei gruppi che sono stati assegnati loro
+- Utenti editor, possono creare nuove password e gruppi ed assegnarli agli utenti di sola lettura
+- Utenti amministratore, possono creare nuovi utenti editor e gestire tutte le password
+
+## Come funziona?
+
+L'applicazione / sito web è costruito con [Flutter](https://flutter.dev) e si basa sui servizi cloud Firebase, ovvero l'autenticatore ed il database, oltre che l'hosting per tenerne online la versione sito web.
+
+In questa repository è possibile trovare il codice dell'applicazione per analizzarla più profondamente.
