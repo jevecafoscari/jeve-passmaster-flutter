@@ -8,7 +8,7 @@ Una versione iOS è già esistente, ma non distribuibile per ora.
 
 ## Funzionamento
 
-In questa applicazione esistono due "oggetti" virtuali da tenere in considerazione: i *gruppi* e le *password*.
+In questa applicazione esistono tre "oggetti" virtuali da tenere in considerazione: i *gruppi*, le *password* e gli *utenti*.
 I gruppi possono essere considerati come dei "raccoglitori" per password.
 Gli "utenti", corrispondenti alle persone che usano l'app. Possono avere accesso ad uno, più di uno o tutti i *gruppi*, come spiegato di seguito.
 
