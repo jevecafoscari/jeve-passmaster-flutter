@@ -11,24 +11,27 @@ class GroupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
 
-    return StreamBuilder<List<GroupModel>>(
-      stream: Provider.of<StateModel>(context, listen: false).groupBloc.allGroups,
-      builder: (BuildContext context, AsyncSnapshot<List<GroupModel>> groupsSnapshot) {
-        if (groupsSnapshot.hasData) {
-          if (groupsSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
+    return RefreshIndicator(
+      onRefresh: () => Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false)),
+      child: StreamBuilder<List<GroupModel>>(
+        stream: Provider.of<StateModel>(context, listen: false).groupBloc.allGroups,
+        builder: (BuildContext context, AsyncSnapshot<List<GroupModel>> groupsSnapshot) {
+          if (groupsSnapshot.hasData) {
+            if (groupsSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
 
-          return ListView.builder(
-            itemCount: groupsSnapshot.data.length,
-            itemBuilder: (BuildContext context, int index) => ListTile(
-              title: Text(groupsSnapshot.data.elementAt(index).name),
-              trailing: Text(groupsSnapshot.data.elementAt(index).passwords.length.toString()),
-              onTap: () => Navigator.of(context).pushNamed(GroupEditorScreen.route, arguments: groupsSnapshot.data.elementAt(index)),
-            ),
-          );
-        }
+            return ListView.builder(
+              itemCount: groupsSnapshot.data.length,
+              itemBuilder: (BuildContext context, int index) => ListTile(
+                title: Text(groupsSnapshot.data.elementAt(index).name),
+                trailing: Text(groupsSnapshot.data.elementAt(index).passwords.length.toString()),
+                onTap: () => Navigator.of(context).pushNamed(GroupEditorScreen.route, arguments: groupsSnapshot.data.elementAt(index)),
+              ),
+            );
+          }
 
-        return Center(child: CircularProgressIndicator());
-      },
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
     );
   }
 }

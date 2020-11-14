@@ -80,13 +80,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.of(context).pop();
               },
             ),
-            ListTile(
-              title: Text(S.current.users),
-              onTap: () {
-                setState(() => _pageIndex = 2);
-                Navigator.of(context).pop();
-              },
-            ),
+            if (Provider.of<UserModel>(context).role != UserRole.EDITOR)
+              ListTile(
+                title: Text(S.current.users),
+                onTap: () {
+                  setState(() => _pageIndex = 2);
+                  Navigator.of(context).pop();
+                },
+              ),
           ],
           Spacer(),
           Divider(

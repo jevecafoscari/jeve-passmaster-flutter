@@ -22,8 +22,20 @@ class GroupProvider {
 
       return groups;
     } else {
-      // TODO: Implementare qualcosa di simile con limitazioni.
-      return <GroupModel>[];
+      List<GroupModel> groups = <GroupModel>[];
+      for(int index = 0; index < currentUser.enabledGroups.length; index++) {
+        DocumentSnapshot rawGroup = await References.groupsCollection.doc(currentUser.enabledGroups.elementAt(index)).get();
+        if(rawGroup.exists) {
+          GroupModel group = GroupModel.fromJson(rawGroup.data());
+          group.reference = rawGroup.reference;
+
+          group.passwords = await PasswordProvider.getPasswordByGroup(group.id);
+
+          groups.add(group);
+        }
+      }
+
+      return groups;
     }
   }
 }

@@ -19,37 +19,40 @@ class _PasswordPageState extends State<PasswordPage> {
   Widget build(BuildContext context) {
     Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
 
-    return StreamBuilder<List<GroupModel>>(
-      stream: Provider.of<StateModel>(context, listen: false).groupBloc.allGroups,
-      builder: (BuildContext context, AsyncSnapshot<List<GroupModel>> groupsSnapshot) {
-        if (groupsSnapshot.hasData) {
-          if (groupsSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
+    return RefreshIndicator(
+      onRefresh: () => Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false)),
+      child: StreamBuilder<List<GroupModel>>(
+        stream: Provider.of<StateModel>(context, listen: false).groupBloc.allGroups,
+        builder: (BuildContext context, AsyncSnapshot<List<GroupModel>> groupsSnapshot) {
+          if (groupsSnapshot.hasData) {
+            if (groupsSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
 
-          return ListView.builder(
-            itemCount: groupsSnapshot.data.length,
-            itemBuilder: (BuildContext context, int index) => ExpansionTile(
-              title: Text(groupsSnapshot.data.elementAt(index).name),
-              subtitle: Text(groupsSnapshot.data.elementAt(index).description),
-              trailing: Text(groupsSnapshot.data.elementAt(index).passwords.length.toString()),
-              children: groupsSnapshot.data
-                  .elementAt(index)
-                  .passwords
-                  .map((PasswordModel password) => ListTile(
-                        title: Text(password.service),
-                        subtitle: Text(password.email + " / " + (visiblePasswords.contains(password.id) ? password.password : "********")),
-                        onTap: () => Navigator.of(context).pushNamed(PasswordEditorScreen.route, arguments: password),
-                        trailing: IconButton(
-                          icon: Icon(Icons.remove_red_eye),
-                          onPressed: () => setState(() => visiblePasswords.contains(password.id) ? visiblePasswords.remove(password.id) : visiblePasswords.add(password.id)),
-                        ),
-                      ))
-                  .toList(),
-            ),
-          );
-        }
+            return ListView.builder(
+              itemCount: groupsSnapshot.data.length,
+              itemBuilder: (BuildContext context, int index) => ExpansionTile(
+                title: Text(groupsSnapshot.data.elementAt(index).name),
+                subtitle: Text(groupsSnapshot.data.elementAt(index).description),
+                trailing: Text(groupsSnapshot.data.elementAt(index).passwords.length.toString()),
+                children: groupsSnapshot.data
+                    .elementAt(index)
+                    .passwords
+                    .map((PasswordModel password) => ListTile(
+                          title: Text(password.service),
+                          subtitle: Text(password.email + " / " + (visiblePasswords.contains(password.id) ? password.password : "********")),
+                          onTap: () => Navigator.of(context).pushNamed(PasswordEditorScreen.route, arguments: password),
+                          trailing: IconButton(
+                            icon: Icon(Icons.remove_red_eye),
+                            onPressed: () => setState(() => visiblePasswords.contains(password.id) ? visiblePasswords.remove(password.id) : visiblePasswords.add(password.id)),
+                          ),
+                        ))
+                    .toList(),
+              ),
+            );
+          }
 
-        return Center(child: CircularProgressIndicator());
-      },
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
     );
   }
 }

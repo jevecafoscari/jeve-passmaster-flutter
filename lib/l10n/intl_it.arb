@@ -28,5 +28,6 @@
   "adminExtended": "Può gestire tutte le password e creare nuovi utenti",
   "superAdmin": "Super amministratore",
   "superAdminExtended": "Ce n'è uno: l'unico, il sommo",
-  "weakPassword": "La password deve avere almeno 8 caratteri"
+  "weakPassword": "La password deve avere almeno 8 caratteri",
+  "delete": "Elimina"
 }

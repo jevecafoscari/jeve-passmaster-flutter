@@ -10,24 +10,27 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Provider.of<StateModel>(context, listen: false).userBloc.getAllUsers();
 
-    return StreamBuilder<List<UserModel>>(
-      stream: Provider.of<StateModel>(context, listen: false).userBloc.allUsers,
-      builder: (BuildContext context, AsyncSnapshot<List<UserModel>> usersSnapshot) {
-        if (usersSnapshot.hasData) {
-          if (usersSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
+    return RefreshIndicator(
+      onRefresh: () => Provider.of<StateModel>(context, listen: false).userBloc.getAllUsers(),
+      child: StreamBuilder<List<UserModel>>(
+        stream: Provider.of<StateModel>(context, listen: false).userBloc.allUsers,
+        builder: (BuildContext context, AsyncSnapshot<List<UserModel>> usersSnapshot) {
+          if (usersSnapshot.hasData) {
+            if (usersSnapshot.data.isEmpty) return Center(child: Text(S.current.noData));
 
-          return ListView.builder(
-            itemCount: usersSnapshot.data.length,
-            itemBuilder: (BuildContext context, int index) => ListTile(
-              title: Text(usersSnapshot.data.elementAt(index).displayName),
-              subtitle: Text(usersSnapshot.data.elementAt(index).email),
-              onTap: () => Navigator.of(context).pushNamed(UserEditorScreen.route, arguments: usersSnapshot.data.elementAt(index)),
-            ),
-          );
-        }
+            return ListView.builder(
+              itemCount: usersSnapshot.data.length,
+              itemBuilder: (BuildContext context, int index) => ListTile(
+                title: Text(usersSnapshot.data.elementAt(index).displayName),
+                subtitle: Text(usersSnapshot.data.elementAt(index).email),
+                onTap: () => Navigator.of(context).pushNamed(UserEditorScreen.route, arguments: usersSnapshot.data.elementAt(index)),
+              ),
+            );
+          }
 
-        return Center(child: CircularProgressIndicator());
-      },
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
     );
   }
 }

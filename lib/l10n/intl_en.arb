@@ -28,5 +28,6 @@
   "adminExtended": "Can manage passwords and create new users",
   "superAdmin": "Super admin",
   "superAdminExtended": "There's only one, and he's the chosen one",
-  "weakPassword": "The password must has at least 8 characters"
+  "weakPassword": "The password must has at least 8 characters",
+  "delete": "Delete"
 }

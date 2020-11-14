@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "admin" : MessageLookupByLibrary.simpleMessage("Amministratore"),
     "adminExtended" : MessageLookupByLibrary.simpleMessage("Può gestire tutte le password e creare nuovi utenti"),
     "credential" : MessageLookupByLibrary.simpleMessage("Email / username"),
+    "delete" : MessageLookupByLibrary.simpleMessage("Elimina"),
     "description" : MessageLookupByLibrary.simpleMessage("Descrizione"),
     "editGroup" : MessageLookupByLibrary.simpleMessage("Modifica gruppo"),
     "editPassword" : MessageLookupByLibrary.simpleMessage("Modifica password"),

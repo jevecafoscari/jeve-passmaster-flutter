@@ -19,6 +19,7 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   PasswordModel password;
+  bool canEdit = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,8 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
       password = ModalRoute.of(context).settings.arguments as PasswordModel;
       if (password == null) password = PasswordModel(id: randomAlphaNumeric(20), creationDate: DateTime.now(), groupIds: Set<String>());
     }
+
+    if (Provider.of<UserModel>(context, listen: false).role == UserRole.READ_ONLY) canEdit = false;
 
     return Scaffold(
       appBar: AppBar(title: Text(S.current.editGroup)),
@@ -47,6 +50,7 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
                     child: Column(
                       children: [
                         TextFormField(
+                          enabled: canEdit,
                           decoration: InputDecoration(
                             labelText: S.current.name,
                           ),
@@ -55,22 +59,19 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
                           onSaved: (String value) => password.service = value,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            labelText: S.current.credential,
-                            alignLabelWithHint: true,
-                          ),
+                          enabled: canEdit,
+                          decoration: InputDecoration(labelText: S.current.credential),
                           initialValue: password.email,
                           onSaved: (String value) => password.email = value,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            labelText: S.current.password,
-                            alignLabelWithHint: true,
-                          ),
+                          enabled: canEdit,
+                          decoration: InputDecoration(labelText: S.current.password),
                           initialValue: password.password,
                           onSaved: (String value) => password.password = value,
                         ),
                         TextFormField(
+                          enabled: canEdit,
                           decoration: InputDecoration(
                             labelText: S.current.description,
                             alignLabelWithHint: true,
@@ -84,44 +85,50 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
                     ),
                   ),
                 ),
-                Consumer<StateModel>(
-                  builder: (BuildContext context, StateModel currentState, Widget child) => ListView.builder(
-                    itemCount: Provider.of<StateModel>(context).groupBloc.groups.length,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) => CheckboxListTile(
-                      title: Text(currentState.groupBloc.groups.elementAt(index).name),
-                      value: password.groupIds.contains(currentState.groupBloc.groups.elementAt(index).id),
-                      onChanged: (bool newValue) => setState(() => newValue
-                          ? password.groupIds.add(currentState.groupBloc.groups.elementAt(index).id)
-                          : password.groupIds.remove(currentState.groupBloc.groups.elementAt(index).id)),
-                    ),
-                  ),
-                ),
+                canEdit
+                    ? Consumer<StateModel>(
+                        builder: (BuildContext context, StateModel currentState, Widget child) => ListView.builder(
+                          itemCount: Provider.of<StateModel>(context).groupBloc.groups.length,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index) => CheckboxListTile(
+                            title: Text(currentState.groupBloc.groups.elementAt(index).name),
+                            value: password.groupIds.contains(currentState.groupBloc.groups.elementAt(index).id),
+                            onChanged: canEdit
+                                ? (bool newValue) => setState(() => newValue
+                                    ? password.groupIds.add(currentState.groupBloc.groups.elementAt(index).id)
+                                    : password.groupIds.remove(currentState.groupBloc.groups.elementAt(index).id))
+                                : null,
+                          ),
+                        ),
+                      )
+                    : Container(),
               ],
             ),
           ),
         ),
-        ElevatedButton(
-          child: Text(S.current.save),
-          onPressed: () async {
-            if (_formKey.currentState.validate()) {
-              if (password.groupIds.isEmpty) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.requiredGroup)));
-                return;
-              }
+        canEdit
+            ? ElevatedButton(
+                child: Text(S.current.save),
+                onPressed: () async {
+                  if (_formKey.currentState.validate()) {
+                    if (password.groupIds.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.requiredGroup)));
+                      return;
+                    }
 
-              _formKey.currentState.save();
-              if (password.reference == null)
-                await PasswordHelper.createPassword(password);
-              else
-                await PasswordHelper.editPassword(password);
+                    _formKey.currentState.save();
+                    if (password.reference == null)
+                      await PasswordHelper.createPassword(password);
+                    else
+                      await PasswordHelper.editPassword(password);
 
-              Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
-              Navigator.of(context).pop();
-            }
-          },
-        ),
+                    Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
+                    Navigator.of(context).pop();
+                  }
+                },
+              )
+            : Container(),
       ],
     );
   }
