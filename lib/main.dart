@@ -40,7 +40,7 @@ class Passmaster extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        initialRoute: kIsWeb ? LoginScreen.route : SplashScreen.route,
+        initialRoute: false ? LoginScreen.route : SplashScreen.route,
         routes: <String, Widget Function(BuildContext)>{
           SplashScreen.route: (BuildContext context) => SplashScreen(),
           LoginScreen.route: (BuildContext context) => LoginScreen(),

@@ -13,12 +13,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     surname: json['surname'] as String,
     photoUrl: json['photoUrl'] as String,
-    creationDate: json['creationDate'] == null
-        ? null
-        : DateTime.parse(json['creationDate'] as String),
+    creationDate: json['creationDate'] == null ? null : DateTime.parse(json['creationDate'] as String),
     role: _$enumDecodeNullable(_$UserRoleEnumMap, json['role']),
-    enabledGroups:
-        (json['enabledGroups'] as List)?.map((e) => e as String)?.toSet(),
+    enabledGroups: (json['enabledGroups'] as List)?.map((e) => e as String)?.toSet(),
   );
 }
 
@@ -43,9 +40,7 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
+  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

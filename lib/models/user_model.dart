@@ -60,7 +60,6 @@ class UserModel extends ChangeNotifier {
 
   Future<void> logout() async {
     await AuthHelper.logout();
-
   }
 }
 

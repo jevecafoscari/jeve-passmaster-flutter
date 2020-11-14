@@ -107,61 +107,61 @@ class _PasswordEditorScreenState extends State<PasswordEditorScreen> {
             ),
           ),
         ),
+        if (canEdit)
+          Row(
+            children: [
+              SizedBox(width: 8.0),
+              Expanded(
+                child: ElevatedButton(
+                  child: Text(S.current.save),
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      if (password.groupIds.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.requiredGroup)));
+                        return;
+                      }
 
-        if(canEdit) Row(
-          children: [
-            SizedBox(width: 8.0),
-            Expanded(
-              child: ElevatedButton(
-                child: Text(S.current.save),
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    if (password.groupIds.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.requiredGroup)));
-                      return;
+                      _formKey.currentState.save();
+                      if (password.reference == null)
+                        await PasswordHelper.createPassword(password);
+                      else
+                        await PasswordHelper.editPassword(password);
+
+                      Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
+                      Navigator.of(context).pop();
                     }
-
-                    _formKey.currentState.save();
-                    if (password.reference == null)
-                      await PasswordHelper.createPassword(password);
-                    else
-                      await PasswordHelper.editPassword(password);
-
-                    Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
-                    Navigator.of(context).pop();
-                  }
-                },
+                  },
+                ),
               ),
-            ),
-            SizedBox(width: 8.0),
-            Expanded(
-              child: ElevatedButton(
-                child: Text(S.current.delete),
-                onPressed: password.reference == null
-                    ? null
-                    : () async {
-                  bool delete = await showDialog<bool>(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                      title: Text(S.current.deletePassword),
-                      content: Text(S.current.deletePasswordExtended),
-                      actions: [
-                        TextButton(child: Text(S.current.undo), onPressed: () => Navigator.of(context).pop(false)),
-                        ElevatedButton(child: Text(S.current.delete), onPressed: () => Navigator.of(context).pop(true)),
-                      ],
-                    ),
-                  );
-                  if (delete) {
-                    await PasswordHelper.deletePassword(password);
-                    Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
-                    Navigator.of(context).pop();
-                  }
-                },
+              SizedBox(width: 8.0),
+              Expanded(
+                child: ElevatedButton(
+                  child: Text(S.current.delete),
+                  onPressed: password.reference == null
+                      ? null
+                      : () async {
+                          bool delete = await showDialog<bool>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: Text(S.current.deletePassword),
+                              content: Text(S.current.deletePasswordExtended),
+                              actions: [
+                                TextButton(child: Text(S.current.undo), onPressed: () => Navigator.of(context).pop(false)),
+                                ElevatedButton(child: Text(S.current.delete), onPressed: () => Navigator.of(context).pop(true)),
+                              ],
+                            ),
+                          );
+                          if (delete) {
+                            await PasswordHelper.deletePassword(password);
+                            Provider.of<StateModel>(context, listen: false).groupBloc.getAllGroups(Provider.of<UserModel>(context, listen: false));
+                            Navigator.of(context).pop();
+                          }
+                        },
+                ),
               ),
-            ),
-            SizedBox(width: 8.0),
-          ],
-        ),
+              SizedBox(width: 8.0),
+            ],
+          ),
       ],
     );
   }

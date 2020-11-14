@@ -23,9 +23,9 @@ class GroupProvider {
       return groups;
     } else {
       List<GroupModel> groups = <GroupModel>[];
-      for(int index = 0; index < currentUser.enabledGroups.length; index++) {
+      for (int index = 0; index < currentUser.enabledGroups.length; index++) {
         DocumentSnapshot rawGroup = await References.groupsCollection.doc(currentUser.enabledGroups.elementAt(index)).get();
-        if(rawGroup.exists) {
+        if (rawGroup.exists) {
           GroupModel group = GroupModel.fromJson(rawGroup.data());
           group.reference = rawGroup.reference;
 
