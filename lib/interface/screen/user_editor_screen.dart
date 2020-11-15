@@ -101,7 +101,7 @@ class _UserEditorScreenState extends State<UserEditorScreen> {
                   groupValue: user.role,
                   value: UserRole.EDITOR,
                   title: Text(S.current.editor),
-                  subtitle: Text(S.current.editor),
+                  subtitle: Text(S.current.editorExtended),
                   onChanged: (UserRole value) => setState(() => user.role = value),
                 ),
                 RadioListTile<UserRole>(
