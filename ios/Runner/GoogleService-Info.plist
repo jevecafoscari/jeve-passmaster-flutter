@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>649369177367-i8en8crall3svgqs8sp6mh5akckb6ruv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.649369177367-i8en8crall3svgqs8sp6mh5akckb6ruv</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>649369177367-im8kmqmge9ohlkppsc0dkj765v1d0ie3.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDniu8txU_zywbVjqItgoVxNPtqRjY_nDA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>649369177367</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>it.jeve.passmaster</string>
+	<key>PROJECT_ID</key>
+	<string>jeve-passmaster-flutter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jeve-passmaster-flutter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:649369177367:ios:a1bd5c0f81a207c3827b52</string>
+	<key>DATABASE_URL</key>
+	<string>https://jeve-passmaster-flutter.firebaseio.com</string>
+</dict>
+</plist>
