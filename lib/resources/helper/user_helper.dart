@@ -9,8 +9,11 @@ class UserHelper {
   static Future<bool> createUser(UserModel user, String password) async {
     try {
       // Con queste due linee facciamo la magia.
-      FirebaseApp app = await FirebaseApp.configure(name: 'Secondary', options: FirebaseApp.instance.options);
-      UserCredential credential = await FirebaseAuth.fromApp(app).createUserWithEmailAndPassword(email: user.email, password: password);
+      FirebaseApp secondaryFirebaseApp = await Firebase.initializeApp(
+        name: "Seconday",
+        options: Firebase.app().options,
+      );
+      UserCredential credential = await FirebaseAuth.instanceFor(app: secondaryFirebaseApp).createUserWithEmailAndPassword(email: user.email, password: password);
 
       user.uid = credential.user.uid;
 

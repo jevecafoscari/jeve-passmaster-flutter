@@ -20,23 +20,23 @@ dependencies:
     sdk: flutter
 
   # Grafica
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.2
   modal_progress_hud: ^0.1.3
 
   # Firebase
-  firebase_core: ^0.5.2
-  firebase_auth: ^0.18.3
-  cloud_firestore: ^0.14.3
+  firebase_core: ^1.0.2
+  firebase_auth: ^1.0.1
+  cloud_firestore: ^1.0.3
 
   # Logica
-  provider: ^4.3.2+2
-  rxdart: ^0.24.1
+  provider: ^5.0.0
+  rxdart: ^0.26.0
 
   # Modelli
-  json_annotation: ^3.1.0
+  json_annotation: ^4.0.1
 
   # Utilità
-  form_field_validator: ^1.0.1
+  form_field_validator: ^1.1.0
   random_string: ^2.1.0
 
 
@@ -44,10 +44,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  json_serializable: ^3.5.0
+  json_serializable: ^4.1.0
 
   # flutter pub run build_runner build --delete-conflicting-outputs
-  build_runner: ^1.10.4
+  build_runner: ^1.12.2
 
 
 flutter:
