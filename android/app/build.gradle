@@ -47,7 +47,7 @@ android {
         applicationId "it.jeve.passmaster"
         minSdkVersion 21
         multiDexEnabled true
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
